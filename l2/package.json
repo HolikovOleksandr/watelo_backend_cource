@@ -1,16 +1,20 @@
 {
+  "engines": {
+    "node": "21.7.3"
+  },
   "name": "watelo_backend_cource",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Les Holikov",
   "license": "ISC",
   "description": "Project for bacend lessons",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "moment": "^2.30.1"
   }
 }
