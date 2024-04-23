@@ -1,5 +1,3 @@
-export const app = () => {
-  console.log("Hello, Homework!");
-};
+export const app = () => {};
 
 app();
