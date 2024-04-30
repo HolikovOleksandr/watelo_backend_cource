@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "age": 25
+    },
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "age": 30
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob.johnson@example.com",
+      "age": 40
+    }
+  ],
+  "products": [
+    {
+      "id": 103,
+      "name": "Headphones",
+      "brand": "Brand C",
+      "price": 199.99
+    },
+    {
+      "id": 102,
+      "name": "Smartphone",
+      "brand": "Brand B",
+      "price": 499.99
+    },
+    {
+      "id": 101,
+      "name": "Laptop",
+      "brand": "Brand A",
+      "price": 999.99
+    }
+  ]
+}
