@@ -1,9 +1,13 @@
-import { readAndProcessData, processData } from "./tasks/firstTask.js";
-
-const firstTask = () => readAndProcessData("./data/data.json", processData);
+// import firstTask from './tasks/firstTask.js';
+// import secondTask from './tasks/secondTask.js';
+import thirdTask from './tasks/thirdTask.js';
 
 export const app = () => {
-  firstTask();
+  const filePath = './data/data.json';
+
+  // firstTask(filePath);
+  // secondTask(filePath);
+  thirdTask(filePath);
 };
 
 app();
