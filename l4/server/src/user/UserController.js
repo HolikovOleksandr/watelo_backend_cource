@@ -2,11 +2,22 @@ import { readFileSync, writeFileSync } from 'fs';
 import bcrypt from 'bcrypt';
 import { UserModel } from './models/UserModel.js';
 
+/**
+ * Controller class for managing user data.
+ */
 export class UserController {
+  /**
+   * Constructs a new UserController instance.
+   * @param {string} filePath - The path to the JSON file containing user data.
+   */
   constructor(filePath) {
     this.filePath = filePath;
   }
 
+  /**
+   * Reads user data from the JSON file.
+   * @returns {Array} The array of user data.
+   */
   readData() {
     try {
       const jsonData = readFileSync(this.filePath, 'utf8');
@@ -17,6 +28,10 @@ export class UserController {
     }
   }
 
+  /**
+   * Writes user data to the JSON file.
+   * @param {Array} data - The array of user data to write.
+   */
   writeData(data) {
     try {
       const jsonData = JSON.stringify(data, null, 2);
@@ -26,15 +41,26 @@ export class UserController {
     }
   }
 
+  /**
+   * Retrieves all users.
+   * @param {Object} req - The request object.
+   * @param {Object} res - The response object.
+   */
   getAllUsers(req, res) {
     const data = this.readData();
     res.json(data);
   }
 
+  /**
+   * Retrieves a user by ID.
+   * @param {Object} req - The request object.
+   * @param {Object} res - The response object.
+   */
   getUserById(req, res) {
     const userId = Number(req.params.id);
     const data = this.readData();
-    const user = data.find((item) => parseInt(item.id) === userId); // Перетворюємо item.id у число для порівняння
+    const user = data.find((item) => parseInt(item.id) === userId);
+    
     if (user) {
       res.json(user);
     } else {
@@ -42,6 +68,11 @@ export class UserController {
     }
   }
 
+  /**
+   * Creates a new user.
+   * @param {Object} req - The request object.
+   * @param {Object} res - The response object.
+   */
   async createNewUser(req, res) {
     const data = this.readData();
     const { name, email, password } = req.body;
@@ -59,6 +90,11 @@ export class UserController {
     res.status(201).json(newUser);
   }
 
+  /**
+   * Updates a user by ID.
+   * @param {Object} req - The request object.
+   * @param {Object} res - The response object.
+   */
   updateUser(req, res) {
     const userId = Number(req.params.id);
     const updatedData = req.body;
@@ -73,14 +109,24 @@ export class UserController {
     }
   }
 
+  /**
+   * Deletes a user by ID.
+   * @param {Object} req - The request object.
+   * @param {Object} res - The response object.
+   */
   deleteUserById(req, res) {
-    const userId = Number(req.params.id); // Конвертуємо параметр у число
+    const userId = Number(req.params.id);
     const data = this.readData();
     const newData = data.filter((item) => item.id !== userId);
     this.writeData(newData);
     res.status(204).end();
   }
 
+  /**
+   * Deletes all users.
+   * @param {Object} req - The request object.
+   * @param {Object} res - The response object.
+   */
   deleteAllUsers(req, res) {
     try {
       this.writeData([]);
