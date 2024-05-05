@@ -11,7 +11,7 @@ class UserRouter {
    * @throws {Error} Throws an error if the provided controller is not an instance of UserController.
    */
   constructor(controller) {
-    if (!controller instanceof UserController) {
+    if (!(controller instanceof UserController)) {
       throw new Error('⛔ UserRouter expects UserController');
     }
 
@@ -26,32 +26,32 @@ class UserRouter {
   initializeRoutes() {
     // Route for getting all users
     this.routes.get('/', (req, res) => {
-      return this.controller.getAllUsers(req, res);
+      this.controller.getAllUsers(req, res);
     });
 
     // Route for getting a user by ID
     this.routes.get('/:id', (req, res) => {
-      return this.controller.getUserById(req, res);
+      this.controller.getUserById(req, res);
     });
 
     // Route for creating a new user
     this.routes.post('/', (req, res) => {
-      return this.controller.createNewUser(req, res);
+      this.controller.createNewUser(req, res);
     });
 
     // Route for updating a user by ID
     this.routes.patch('/:id', (req, res) => {
-      return this.controller.updateUser(req, res);
+      this.controller.updateUser(req, res);
     });
 
     // Route for deleting a user by ID
     this.routes.delete('/:id', (req, res) => {
-      return this.controller.deleteUserById(req, res);
+      this.controller.deleteUserById(req, res);
     });
 
     // Route for deleting all users
     this.routes.delete('/', (req, res) => {
-      return this.controller.deleteAllUsers(req, res);
+      this.controller.deleteAllUsers(req, res);
     });
   }
 }

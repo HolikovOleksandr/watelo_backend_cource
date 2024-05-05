@@ -1,0 +1,20 @@
+[
+  {
+    "id": 63060394830,
+    "name": "Joаhn",
+    "email": "example1@email.com",
+    "password": "$2b$10$Yt2UfPtDb6ju8gvA8OtpNu1Y2GPDQ6Gvg4FKj.9GenvvyvDqDU9vy"
+  },
+  {
+    "id": 973416370109,
+    "age": "example2@email.com",
+    "name": "John",
+    "email": "$2b$10$5qlqysIbDTYGh3GWQjIZXehYwmhYVUnAOOAOWMpmF8/x1phCJWr/K"
+  },
+  {
+    "id": 434204801564,
+    "age": "example2@email.com",
+    "name": "John",
+    "email": "$2b$10$QUnIzQiOqgAg2HAc1IeYn.3DD/0RlmU80vFdH6Kn8AVGno/Vqbmv."
+  }
+]

@@ -18,7 +18,7 @@ const serverRunner = async (port) => {
   server.use(morgan('dev'));
 
   // Initialize user-related routes
-  const dbPath = './user/data/users_db.json';
+  const dbPath = './src/data/users_db.json';
   const userController = new UserController(dbPath);
   const userRouter = new UserRouter(userController);
   server.use('/users', userRouter.routes);
