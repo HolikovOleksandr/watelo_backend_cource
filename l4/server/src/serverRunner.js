@@ -1,3 +1,5 @@
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../docs/swagger/swagger-output.json' assert { type: 'json' };
 import express from 'express';
 import morgan from 'morgan';
 import UserRouter from './user/UserRouter.js';
@@ -16,6 +18,8 @@ const serverRunner = async (port) => {
 
   // Middleware for logging HTTP requests
   server.use(morgan('dev'));
+
+  server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   // Initialize user-related routes
   const dbPath = './src/data/users_db.json';
